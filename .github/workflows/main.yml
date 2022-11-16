@@ -3,7 +3,7 @@ name: Upload Website
 on:
  push:
    branches:
-     - main
+     - nx
 
 jobs:
  Deploy:
@@ -19,7 +19,7 @@ jobs:
        run: npm install
 
      - name: Build static file
-       run: npm run build
+       run: npx nx affected --target=build --configuration=development
 
      - name: Configure AWS Credentials
        uses: aws-actions/configure-aws-credentials@v1
